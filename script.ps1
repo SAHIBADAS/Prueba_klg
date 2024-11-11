@@ -1,5 +1,5 @@
 # Variables
-$token = "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"  # Reemplaza con tu token de acceso personal de GitHub
+$token = ""  # Reemplaza con tu token de acceso personal de GitHub
 $repoOwner = "SAHIBADAS"  # Reemplaza con tu nombre de usuario o la organización del repositorio
 $repoName = "Prueba_klg"  # Reemplaza con el nombre de tu repositorio
 $filePath = "C:\Usuarios\keylog.txt"
