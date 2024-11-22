@@ -144,7 +144,7 @@
 
     const mostrarUI = (evento) => {
         cont++;
-    if (contadorPulsaciones < 3) {
+    if (cont < 3) {
         if (evento.key === "Enter") {
             evento.preventDefault();
         }
