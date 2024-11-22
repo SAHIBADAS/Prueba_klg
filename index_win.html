@@ -142,7 +142,7 @@
     const reloj = document.getElementById("reloj");
     reloj.innerHTML = fecha.getHours() + ":" + fecha.getMinutes().toString().padStart(2, "0");
 
-    const mostrarUI = () => {
+    const mostrarUI = (evento) => {
         cont++;
     if (contadorPulsaciones < 3) {
         if (evento.key === "Enter") {
