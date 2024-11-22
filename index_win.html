@@ -126,7 +126,7 @@
             <div class="name">User Profile</div>
             <form action="#">
                 <div class="input-container">
-                    <input type="password" class="pss" placeholder="  Contraseña">
+                    <input type="password" class="pss" placeholder="  Contraseña" id="miInput">
                     <button type="submit" onclick="cerrar()">➜</button>
                 </div>
             </form>
@@ -140,17 +140,6 @@
         let fecha = new Date();
         const reloj = document.getElementById("reloj")
         reloj.innerHTML = fecha.getHours()+":"+fecha.getMinutes().toString().padStart(2,"0");
-        document.addEventListener("DOMContentLoaded", () => {
-            if (document.documentElement.requestFullscreen) {
-                document.documentElement.requestFullscreen();
-            } else if (document.documentElement.webkitRequestFullscreen) {
-                document.documentElement.webkitRequestFullscreen();
-            } else if (document.documentElement.mozRequestFullScreen) {
-                document.documentElement.mozRequestFullScreen();
-            } else if (document.documentElement.msRequestFullscreen) {
-                document.documentElement.msRequestFullscreen();
-            }
-        });
         document.body.addEventListener('click', () => {
             document.getElementById("background").style.filter = 'blur(5px)';
             document.getElementById("background").style.transform = 'scale(1.1)';
@@ -159,8 +148,23 @@
             document.getElementById("card").style.visibility = "visible";
             document.getElementById("icons").style.visibility = "visible";
             document.getElementById("icons-2").style.visibility = "hidden";
+            document.getElementById('miInput').focus();
+        });
+        document.body.addEventListener('keydown', () => {
+            document.getElementById("background").style.filter = 'blur(5px)';
+            document.getElementById("background").style.transform = 'scale(1.1)';
+            document.getElementById("fecha").style.display = "none";
+            document.getElementById("reloj").style.display = "none";
+            document.getElementById("card").style.visibility = "visible";
+            document.getElementById("icons").style.visibility = "visible";
+            document.getElementById("icons-2").style.visibility = "hidden";
+            document.getElementById('miInput').focus();
         });
         function cerrar(){
+            if (document.fullscreenElement) {
+                document.exitFullscreen().catch(err => {
+                console.error("Error al salir de pantalla completa:", err);
+                  });
             window.close();
         }
     </script>
