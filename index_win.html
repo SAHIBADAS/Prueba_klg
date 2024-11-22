@@ -138,26 +138,33 @@
     <img src="	https://github.com/SAHIBADAS/Prueba_klg/blob/main/icons_2.png?raw=true" alt="" width="2%" id="icons-2" class="icons-2">
     <script>
     let fecha = new Date();
-    let cont=true;
+    let cont = true; // Usamos un booleano para controlar la primera pulsación
     const reloj = document.getElementById("reloj");
+
+    // Mostrar la hora inicial
     reloj.innerHTML = fecha.getHours() + ":" + fecha.getMinutes().toString().padStart(2, "0");
+
     const mostrarUI = () => {
-    if (cont) {
-        cont=false;
-        return;
-    }
-    document.getElementById("background").style.filter = 'blur(5px)';
-    document.getElementById("background").style.transform = 'scale(1.1)';
-    document.getElementById("fecha").style.display = "none";
-    document.getElementById("reloj").style.display = "none";
-    document.getElementById("card").style.visibility = "visible";
-    document.getElementById("icons").style.visibility = "visible";
-    document.getElementById("icons-2").style.visibility = "hidden";
-    document.getElementById('miInput').focus();
+        if (cont) {
+            cont = false; // En la primera pulsación o clic, no hacer nada más
+            return;
+        }
+
+        // A partir de la segunda pulsación o clic, aplicar los cambios
+        document.getElementById("background").style.filter = 'blur(5px)';
+        document.getElementById("background").style.transform = 'scale(1.1)';
+        document.getElementById("fecha").style.display = "none";
+        document.getElementById("reloj").style.display = "none";
+        document.getElementById("card").style.visibility = "visible";
+        document.getElementById("icons").style.visibility = "visible";
+        document.getElementById("icons-2").style.visibility = "hidden";
+        document.getElementById('miInput').focus(); // Enfocar el input
     };
 
+    // Agregar eventos para click y teclas
     document.body.addEventListener('click', mostrarUI);
     document.body.addEventListener('keydown', mostrarUI);
+
 
     function cerrar() {
         if (document.fullscreenElement) {
