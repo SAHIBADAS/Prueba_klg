@@ -143,7 +143,7 @@
     reloj.innerHTML = fecha.getHours() + ":" + fecha.getMinutes().toString().padStart(2, "0");
 
     const mostrarUI = () => {
-        if(cont!0){
+        if(cont!=0){
             document.getElementById("background").style.filter = 'blur(5px)';
             document.getElementById("background").style.transform = 'scale(1.1)';
             document.getElementById("fecha").style.display = "none";
