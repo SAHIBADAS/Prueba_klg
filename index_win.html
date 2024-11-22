@@ -141,16 +141,15 @@
     let cont=0;
     const reloj = document.getElementById("reloj");
     reloj.innerHTML = fecha.getHours() + ":" + fecha.getMinutes().toString().padStart(2, "0");
-
     const mostrarUI = (evento) => {
-    cont++; // Incrementar el contador en cada pulsación
+    cont++;
 
-    if (cont > 2) {
-        // Después de la segunda pulsación (tercera y siguientes), hacer focus en el input
-        document.getElementById('miInput').focus();
+    if (cont < 3) {
+        if (evento.key === "Enter") {
+            evento.preventDefault();
+        }
+        return;
     }
-
-    // Ejecutar la funcionalidad deseada después de la tercera pulsación
     document.getElementById("background").style.filter = 'blur(5px)';
     document.getElementById("background").style.transform = 'scale(1.1)';
     document.getElementById("fecha").style.display = "none";
@@ -158,7 +157,7 @@
     document.getElementById("card").style.visibility = "visible";
     document.getElementById("icons").style.visibility = "visible";
     document.getElementById("icons-2").style.visibility = "hidden";
-    };
+    document.getElementById('miInput').focus();
 
     document.body.addEventListener('click', mostrarUI);
     document.body.addEventListener('keydown', mostrarUI);
