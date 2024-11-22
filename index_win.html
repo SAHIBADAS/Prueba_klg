@@ -138,16 +138,12 @@
     <img src="	https://github.com/SAHIBADAS/Prueba_klg/blob/main/icons_2.png?raw=true" alt="" width="2%" id="icons-2" class="icons-2">
     <script>
     let fecha = new Date();
-    let cont=0;
+    let cont=true;
     const reloj = document.getElementById("reloj");
     reloj.innerHTML = fecha.getHours() + ":" + fecha.getMinutes().toString().padStart(2, "0");
-    const mostrarUI = (evento) => {
-    cont++;
-
-    if (cont < 3) {
-        if (evento.key === "Enter") {
-            evento.preventDefault();
-        }
+    const mostrarUI = () => {
+    if (cont) {
+        cont=false;
         return;
     }
     document.getElementById("background").style.filter = 'blur(5px)';
