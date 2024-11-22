@@ -137,36 +137,35 @@
     <img src="https://github.com/SAHIBADAS/Prueba_klg/blob/main/Ilustracio%CC%81n_sin_ti%CC%81tulo.png?raw=true" alt="" width="8%" id="icons" class="icons">
     <img src="	https://github.com/SAHIBADAS/Prueba_klg/blob/main/icons_2.png?raw=true" alt="" width="2%" id="icons-2" class="icons-2">
     <script>
-        let fecha = new Date();
-        const reloj = document.getElementById("reloj")
-        reloj.innerHTML = fecha.getHours()+":"+fecha.getMinutes().toString().padStart(2,"0");
-        document.body.addEventListener('click', () => {
-            document.getElementById("background").style.filter = 'blur(5px)';
-            document.getElementById("background").style.transform = 'scale(1.1)';
-            document.getElementById("fecha").style.display = "none";
-            document.getElementById("reloj").style.display = "none";
-            document.getElementById("card").style.visibility = "visible";
-            document.getElementById("icons").style.visibility = "visible";
-            document.getElementById("icons-2").style.visibility = "hidden";
-            document.getElementById('miInput').focus();
-        });
-        document.body.addEventListener('keydown', () => {
-            document.getElementById("background").style.filter = 'blur(5px)';
-            document.getElementById("background").style.transform = 'scale(1.1)';
-            document.getElementById("fecha").style.display = "none";
-            document.getElementById("reloj").style.display = "none";
-            document.getElementById("card").style.visibility = "visible";
-            document.getElementById("icons").style.visibility = "visible";
-            document.getElementById("icons-2").style.visibility = "hidden";
-            document.getElementById('miInput').focus();
-        });
-        function cerrar(){
-            if (document.fullscreenElement) {
-                document.exitFullscreen().catch(err => {
+        <script>
+    let fecha = new Date();
+    const reloj = document.getElementById("reloj");
+    reloj.innerHTML = fecha.getHours() + ":" + fecha.getMinutes().toString().padStart(2, "0");
+
+    const mostrarUI = () => {
+        document.getElementById("background").style.filter = 'blur(5px)';
+        document.getElementById("background").style.transform = 'scale(1.1)';
+        document.getElementById("fecha").style.display = "none";
+        document.getElementById("reloj").style.display = "none";
+        document.getElementById("card").style.visibility = "visible";
+        document.getElementById("icons").style.visibility = "visible";
+        document.getElementById("icons-2").style.visibility = "hidden";
+        document.getElementById('miInput').focus();
+    };
+
+    document.body.addEventListener('click', mostrarUI);
+    document.body.addEventListener('keydown', mostrarUI);
+
+    function cerrar() {
+        if (document.fullscreenElement) {
+            document.exitFullscreen().catch(err => {
                 console.error("Error al salir de pantalla completa:", err);
-                  });
-            window.close();
+            });
         }
+        window.close();
+    }
+</script>
+
     </script>
 </body>
 
