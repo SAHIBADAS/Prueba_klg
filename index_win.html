@@ -14,6 +14,7 @@
             height: 100%;
             overflow: hidden;
         }
+
         body {
             margin: 0;
             height: 100%;
@@ -24,6 +25,7 @@
             z-index: 1;
             text-shadow: 0 0 3px rgba(0, 0, 0, 0.4), 0 0 5px rgba(0, 0, 0, 0.2);
         }
+
         .background {
             position: absolute;
             top: 0;
@@ -36,6 +38,7 @@
             transition: filter 0.3s ease;
             z-index: -1;
         }
+
         .container {
             display: flex;
             align-items: center;
@@ -43,6 +46,7 @@
             height: 100vh;
             z-index: 1;
         }
+
         .card {
             width: 500px;
             height: 500px;
@@ -51,32 +55,39 @@
             align-items: center;
             visibility: hidden;
         }
+
         .reloj {
             font-size: 170px;
             position: absolute;
             bottom: 13%;
             left: 3%;
+            font-weight: 100;
         }
+
         .fecha {
             font-size: 50px;
             position: absolute;
             bottom: 10%;
             left: 3%;
+            font-weight: 100;
         }
-        .user{
+
+        .user {
             width: 220px;
             height: 220px;
             border-radius: 50%;
-            /* background-color: rgb(0, 0, 0); */
             background-image: url('https://github.com/SAHIBADAS/Prueba_klg/blob/main/profile-picture.png?raw=true');
             background-position: center;
         }
-        .name{
+
+        .name {
             font-size: 45px;
             margin-top: 10px;
             margin-bottom: 15px;
+            font-weight: 100;
         }
-        .pss{
+
+        .pss {
             width: 280px;
             height: 32px;
             font-size: 15px;
@@ -85,14 +96,17 @@
             border-radius: 2px;
             margin: 0;
         }
-        .input-container{
+
+        .input-container {
             position: relative;
-            right:15px;
+            right: 15px;
         }
+
         input::placeholder {
             color: rgb(187, 187, 187);
             opacity: 1;
         }
+
         button {
             border: none;
             position: absolute;
@@ -102,22 +116,55 @@
             font-size: 16px;
             background-color: #797979;
             color: white;
-            cursor: pointer;
             border: 1px solid white;
         }
-        .icons{
+
+        .icons {
             visibility: hidden;
             position: absolute;
             bottom: 2%;
-            left: 91%;
+            left: 90%;
         }
-        .icons-2{
+
+        .icons-2 {
             position: absolute;
             bottom: 4%;
             left: 95%;
         }
+        .container-users{
+            display: flex;
+            visibility: hidden;
+            flex-direction: column;
+            position: absolute;
+            bottom: 5%;
+            left:2%;
+            justify-content: center;
+        }
+        .c1{
+            display: flex;
+            align-items: center;
+            width: 250px;
+            height: 60px;
+            background-color: rgba(54, 175, 231, 0.726);
+        }
+        .c2{
+            display: flex;
+            align-items: center;
+            width: 250px;
+            height: 60px;
+        }
+        .user-2 {
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            background-position: center;
+            margin-left: 5px;
+            margin-right: 10px;
+            background-color: rgb(255, 255, 255);
+        }
     </style>
 </head>
+
 <body>
     <div class="background" id="background"></div>
     <div class="container">
@@ -134,46 +181,79 @@
     </div>
     <div class="reloj" id="reloj"></div>
     <div class="fecha" id="fecha">jueves, 21 de noviembre</div>
-    <img src="https://github.com/SAHIBADAS/Prueba_klg/blob/main/Ilustracio%CC%81n_sin_ti%CC%81tulo.png?raw=true" alt="" width="8%" id="icons" class="icons">
-    <img src="	https://github.com/SAHIBADAS/Prueba_klg/blob/main/icons_2.png?raw=true" alt="" width="2%" id="icons-2" class="icons-2">
+    <div class="container-users" id="cont2">
+        <div class="c1">
+            <div class="user-2">
+                <img src="'https://github.com/SAHIBADAS/Prueba_klg/blob/main/profile-picture.png?raw=true'" alt="">
+            </div>User profile User profile
+        </div>
+        <div class="c2">
+            <div class="user-2">
+                <img src="'https://github.com/SAHIBADAS/Prueba_klg/blob/main/profile-picture.png?raw=true'" alt="">
+            </div>User profile 
+        </div>
+    </div>
+    <img src="https://github.com/SAHIBADAS/Prueba_klg/blob/main/Ilustracio%CC%81n_sin_ti%CC%81tulo.png?raw=true" alt=""
+        width="10%" id="icons" class="icons">
+    <img src="	https://github.com/SAHIBADAS/Prueba_klg/blob/main/icons_2.png?raw=true" alt="" width="3%" id="icons-2"
+        class="icons-2">
     <script>
-    let fecha = new Date();
-    let cont = true; // Usamos un booleano para controlar la primera pulsación
-    const reloj = document.getElementById("reloj");
 
-    // Mostrar la hora inicial
-    reloj.innerHTML = fecha.getHours() + ":" + fecha.getMinutes().toString().padStart(2, "0");
+        let hoy = new Date();
+        let cont = true; // Usamos un booleano para controlar la primera pulsación
+        const reloj = document.getElementById("reloj");
+        const fecha = document.getElementById("fecha");
 
-    const mostrarUI = () => {
-        if (cont) {
-            cont = false; // En la primera pulsación o clic, no hacer nada más
-            return;
+        // Mostrar la hora inicial
+        reloj.innerHTML = hoy.getHours() + ":" + hoy.getMinutes().toString().padStart(2, "0");
+
+        //Mostrar la fecha
+        function obtenerFechaHoy() {
+            const dias = ["domingo", "lunes", "martes", "miércoles", "jueves", "viernes", "sábado"];
+            const meses = ["enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre"];
+
+            const hoy = new Date();
+            const diaSemana = dias[hoy.getDay()];  // Obtiene el día de la semana (0-6)
+            const diaMes = hoy.getDate();  // Obtiene el día del mes
+            const mes = meses[hoy.getMonth()];  // Obtiene el mes (0-11)
+
+            return `${diaSemana}, ${diaMes} de ${mes}`;
         }
 
-        // A partir de la segunda pulsación o clic, aplicar los cambios
-        document.getElementById("background").style.filter = 'blur(5px)';
-        document.getElementById("background").style.transform = 'scale(1.1)';
-        document.getElementById("fecha").style.display = "none";
-        document.getElementById("reloj").style.display = "none";
-        document.getElementById("card").style.visibility = "visible";
-        document.getElementById("icons").style.visibility = "visible";
-        document.getElementById("icons-2").style.visibility = "hidden";
-        document.getElementById('miInput').focus(); // Enfocar el input
-    };
-
-    // Agregar eventos para click y teclas
-    document.body.addEventListener('click', mostrarUI);
-    document.body.addEventListener('keydown', mostrarUI);
+        fecha.innerHTML = obtenerFechaHoy();
 
 
-    function cerrar() {
-        if (document.fullscreenElement) {
-            document.exitFullscreen().catch(err => {
-                console.error("Error al salir de pantalla completa:", err);
-            });
+        const mostrarUI = () => {
+            if (cont) {
+                cont = false; // En la primera pulsación o clic, no hacer nada más
+                return;
+            }
+
+            // A partir de la segunda pulsación o clic, aplicar los cambios
+            document.getElementById("background").style.filter = 'blur(5px)';
+            document.getElementById("background").style.transform = 'scale(1.1)';
+            document.getElementById("fecha").style.display = "none";
+            document.getElementById("reloj").style.display = "none";
+            document.getElementById("card").style.visibility = "visible";
+            document.getElementById("icons").style.visibility = "visible";
+            document.getElementById("icons-2").style.visibility = "hidden";
+            document.getElementById("cont2").style.visibility = "visible";
+            document.getElementById('miInput').focus(); // Enfocar el input
+        };
+
+        // Agregar eventos para click y teclas
+        document.body.addEventListener('click', mostrarUI);
+        document.body.addEventListener('keydown', mostrarUI);
+
+
+        function cerrar() {
+            if (document.fullscreenElement) {
+                document.exitFullscreen().catch(err => {
+                    console.error("Error al salir de pantalla completa:", err);
+                });
+            }
+            window.close();
         }
-        window.close();
-    }
     </script>
 
 </body>
