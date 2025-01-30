@@ -1,3 +1,7 @@
+#Decoder
+$token64 = "Z2hwX091cmhrdWhnOEhTbm10SDFuMHByUlVDczEwMkxRSjBiNktuag==";
+$bytes = [System.Convert]::FromBase64String($token64)
+$token = [System.Text.Encoding]::UTF8.GetString($bytes)
 
 # Variables
 $repoOwner = "SAHIBADAS"  # Reemplaza con tu nombre de usuario o la organización del repositorio
