@@ -1,8 +1,4 @@
-#Decoder
-$token64 = "Z2hwX091cmhrdWhnOEhTbm10SDFuMHByUlVDczEwMkxRSjBiNktuag==";
-$bytes = [System.Convert]::FromBase64String($token64)
-$token = [System.Text.Encoding]::UTF8.GetString($bytes)
-
+# Generar nuevo token
 # Variables
 $repoOwner = "SAHIBADAS"  # Reemplaza con tu nombre de usuario o la organización del repositorio
 $repoName = "Prueba_klg"  # Reemplaza con el nombre de tu repositorio
