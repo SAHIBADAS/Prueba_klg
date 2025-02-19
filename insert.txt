@@ -1,0 +1,5 @@
+INSERT INTO zapatilla (modelo, imagen, description, precio) VALUES
+('GT-2000 12', 'images/gt-2000_12black.jpg', 'Zapatillas De Hombre', 160.00),
+('GT-2000 12 Lite', 'images/gt-2000_12Lite.jpg', 'Zapatillas De Mujer', 140.00),
+('GT-2000 11', 'images/gt-2000_12blue.jpg', 'Zapatillas De Hombre', 109.95),
+('GEL-NOOSA TRI 15 GS', 'images/1014A311_800_SR_RT_GLB.webp', 'Zapatillas De Niño', 45.95);
